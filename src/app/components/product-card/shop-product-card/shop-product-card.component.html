@@ -1,1 +1,55 @@
+<section class="bg_color">
+  <div class="section_container">
+    <div class="title">
+      <p>The Best Seller of Bangalore</p>
+      <h1><span>Best</span>Seller</h1>
+    </div>
+    <div class="row">
+      <div *ngFor="let tempproduct of products; let i = index" class="col-md-3">
+        <div class="card">
+          <div class="card_main">
+            <div class="discount">9%</div>
+            <div class="label label_green">Pre-Order</div>
+            <div class="product_container">
+              <div *ngFor="let tempImage of tempproduct.images" class="product_gallary_image"
+              (mouseover)="changeImage(tempImage, i)">
+                <img src="{{tempImage}}" alt="Product" />
+              </div>
+            </div>
+            <div class="card_main_image">
+              <img [src]="mainImages[i]" alt="Product" />
+            </div>
+            <div class="cart_line"></div>
+            <div class="cart_item">
+              <ul>
+                <li>
+                  <a href="#"><i class="fa fa-shopping-basket"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-heart"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-search"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
 
+          <div class="content">
+            <a href="#">Dji Mini 4 Pro</a>
+            <div class="rating">
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+            <p>
+              <span class="money">₹130000</span><span class="old_price">₹135000</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

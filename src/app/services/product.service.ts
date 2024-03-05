@@ -9,18 +9,23 @@ import { Product } from '../common/product';
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:8080/api/products';
+  private baseUrl = 'https://api.escuelajs.co/api/v1/products';
+  
 
   constructor(private httpClient: HttpClient) { }
 
-  getProductList(): Observable<Product[]>{
+  getProductList(): Observable<any[]>{
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
-      map(response => response._embedded.products)
+      map(response => response?._embedded?.products)
     );
+  }
+
+  getProducts(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.baseUrl);
   }
 }
 interface GetResponse{
   _embedded:{
-    products: Product[];
+    products: any[];
   }
 }
